@@ -1,23 +1,23 @@
-const portolioData = [
-    { title: "Proyek 1", description: "Deskripsi proyek 1."},
-    { title: "Proyek 2", description: "Deskripsi proyek 2."},
-    { title: "Proyek 3", description: "Deskripsi proyek 3."},
-    // Tambahkan lebih banyak objek proyek sesuai kebutuhan
+const portfolioData = [
+    {title: 'proyek1', description: 'deskripsi proyek 1.'},
+    {title: 'proyek2', description: 'deskripsi proyek 2.'},
+    {title: 'proyek3', description: 'deskripsi proyek 3.'}
+    // komentar
 ];
 
-const portofolioContainer = document.getElementById("portofolioContainer");
+const portfoloContainer = document.getElementById('portfolioContainer');
 
-portolioData.forEach(project => {
-    const projectItem = document.createElement("div");
-    projectItem.className = "item";
+portfolioData.forEach(project => {
+    const projectItem = document.createElement('div');
+    projectItem.className = 'item';
     projectItem.innerHTML = `
     <h2>${project.title}</h2>
     <p>${project.description}</p>
     `;
-    portofolioContainer.appendChild(projectItem);
+    portfoloContainer.appendChild(projectItem);
 });
 
-//Section From Search
+//section from
 const form = document.querySelector('form');
 const items = document.querySelectorAll('.item');
 
@@ -27,13 +27,13 @@ form.addEventListener('submit', function (e) {
     const searchTerm = form.search.value.toLowerCase();
 
     items.forEach(item => {
-        const projectTitle = item.querySelector('h2').textContent.toLowerCase();
-        const projectDescription = item.querySelector('p').textContent.toLowerCase();
+        const projectTitle = item.querySelector('h2').textContent.toLocaleLowerCase();
+        const projectDescription = item.querySelector('p').textContent.toLocaleLowerCase();
 
         if (projectTitle.includes(searchTerm) || projectDescription.includes(searchTerm)) {
-            item.computedStyleMap.display = 'block';
-        } else {
-            item.computedStyleMap.display = 'none';
-        }
+            item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
     });
 });
