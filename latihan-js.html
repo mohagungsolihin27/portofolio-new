@@ -49,6 +49,43 @@
             </div>
         </div>
     </div>
+
+    <!-- Exercise 2 -->
+    <div class="container-fluid pt-1">
+        <div class="row mb-1 mt-1">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pengelompokan Bilangan <small class="text-muted">kita punya 2 kelompok bilangan</small></h5>
+
+                        <ul class="card-text">
+                            <li>Untuk bilangan Genap ada [2, 4, 6, 8, 10]</li>
+                            <li>Untuk bilangan Ganjil ada [1, 3, 5, 7, 9]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered" id="table_bilangan">
+                    <thead>
+                        <tr>
+                            <th>Papan Cek Bilangan</th>
+                            <th>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="input_bilangan" aria-label="Sizing example input" placeholder="input Bilangan" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
     let data_siswa = [
@@ -102,6 +139,23 @@
             const name = $("input").val();
             find(name);
         });
+    });
+
+    const genap = [2, 4, 6, 8, 20];
+    const ganjil = [1, 3, 5, 7, 9];
+
+    $("input#input_bilangan").keyup(function () {
+        const number = $("input#input_bilangan").val();
+        $("#table_bilangan tbody").empty();
+        if (number) {
+            if (genap.includes(parseInt(number))) {
+                $("table_bilangan tbody").append(`<tr><td colspan="2"> <h4><span class="badge bg-success">${number} adalah bilangan genap</span></h4></td></tr>`);
+            } else if (ganjil.includes(parseInt(number))) {
+                $("table_bilangan tbody").append(`<tr><td colspan="2"> <h4><span class="badge bg-info">${number} adalah bilangan ganjil</span></h4></td></tr>`);
+            } else {
+                $("table_bilangan tbody").append(`<tr><td colspan="2"> <h4><span class="badge bg-warning">Maaf untuk ${number} tidak termasuk creteria</span></h4></td></tr>`);
+            }
+        }
     });
 </script>
 </html>
