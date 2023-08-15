@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object And Function</title>
+</head>
+<body>
+    <h1>Object And Function</h1>
+</body>
+<script>
+    // Membuat object student secara manual menggunakan type data object;
+    let student_1 = {
+        name : "Hendar",
+        class : "Fullstack Web Developer",
+        gender : "Laki-laki"
+    }
+
+    let student_2 = {
+        name : "Hendry",
+        class : "Fullstack Web Developer",
+        gender : "Laki-laki"
+    }
+
+    let student_3 = {
+        name : "Fitri",
+        class : "Fullstack Web Developer",
+        gender : "Perempuan"
+    }
+
+    console.log(student_1);
+    console.log(student_2);
+    console.log(student_3);
+
+    // Membuat object dengan function constructor.
+
+    console.log("------------------------------------------");
+    function Student(nama, kelas, gender) {
+        this.nama = nama;
+        this.kelas = kelas;
+        this.gender = gender;
+    }
+
+    const student_func_1 = new Student("Opick", "Bisnis Analis", "Laki-laki");
+    const student_func_2 = new Student("Kausar", "Product Manager", "Laki-laki");
+    const student_func_3 = new Student("Fahmi", "Backend Developer", "Laki-laki");
+    const student_func_4 = new Student("Sinta", "QA", "Perempuan");
+
+    console.log(student_func_1);
+    console.log(student_func_2);
+    console.log(student_func_3);
+    console.log(student_func_4);
+
+    // Membuat function didalam function constructor
+
+    function Facil(nama, kelas, gender) {
+        this.name = nama;
+        this.kelas = kelas;
+        this.gender = gender;
+        this.helloStudent = (nama, gender) => {
+            const title = (gender === "L") ? "Mas ":"Mba";
+            console.log (`Hallo ${title} ${nama}, Selamat Malam!`);
+        }
+    }
+
+    const facil_1 = new Facil("Siti", "FWA", "Perempuan");
+    console.log(facil_1);
+    facil_1.helloStudent("Hendar", "L");
+</script>
+</html>
